@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
         'williamboman/mason.nvim',
         run = ':MasonUpdate' -- Optional: to ensure Mason is up-to-date
  }
- 
+ use 'psf/black' 
  use 'neanias/everforest-nvim'
  use 'catppuccin/nvim'
  use 'projekt0n/github-nvim-theme'
@@ -55,5 +55,11 @@ return require('packer').startup(function(use)
             'saadparwaiz1/cmp_luasnip' -- LuaSnip source for nvim-cmp
         }
     }
+ use 'Vigemus/iron.nvim'
+ use 'mfussenegger/nvim-dap'
+ use 'rcarriga/nvim-dap-ui'
+ use 'theHamsta/nvim-dap-virtual-text'
+ use 'nvim-neotest/nvim-nio' 
+
 end)
 

@@ -25,6 +25,17 @@ lspconfig.pyright.setup {
     capabilities = capabilities,
 }
 
+lspconfig["eslint"].setup {
+  -- capabilities = capabilities
+  root_dir = lspconfig.util.root_pattern(
+    '.eslintrc',
+   '.eslintrc.js',
+   '.eslintrc.cjs',
+   '.eslintrc.yaml',
+   '.eslintrc.yml',
+   '.eslintrc.json' )
+}	
+
 -- init.lua
 
 -- Set leader to space
@@ -37,7 +48,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Define key mappings
-    local opts = { noremap=true, silent=true, buffer=bufnr }
+    local opts = { noremap=true, silent=true }
     local keymap = vim.api.nvim_buf_set_keymap
 
     -- LSP Key Mappings
@@ -57,7 +68,7 @@ local on_attach = function(client, bufnr)
     keymap(bufnr, 'n', '<leader>q', '<Cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 end
 -- Example configuration for the LSP servers
-local servers = { "eslint","rust_analyser", "pyright" }
+local servers = { "eslint","rust_analyzer", "pyright" }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {

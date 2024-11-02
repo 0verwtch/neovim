@@ -24,6 +24,8 @@ require_after('plugin.devicons')
 require_after('plugin.black')
 require_after('plugin.ale')
 require_after('plugin.cmp')
+require_after('plugin.dap')
+require_after('plugin.code-runner')
 -- Themes
 -- require_after('themes.github')
 require_after('themes.catppuccin')
