@@ -10,7 +10,7 @@
 
 require("mason").setup()
 require("mason-lspconfig").setup({
- 	ensure_installed = {"pyright", "rust_analyzer", "eslint"}
+ 	ensure_installed = {"pyright", "rust_analyzer", "eslint", "phpactor"}
 })
 
 local lspconfig = require('lspconfig')
@@ -27,6 +27,7 @@ lspconfig.pyright.setup {
 
 lspconfig["eslint"].setup {
   -- capabilities = capabilities
+  cmd = { "eslint", "--stdio" },
   root_dir = lspconfig.util.root_pattern(
     '.eslintrc',
    '.eslintrc.js',
