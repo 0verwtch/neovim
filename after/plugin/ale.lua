@@ -1,4 +1,4 @@
--- Install ALE
+-- Install ale
 -- use 'dense-analysis/ale'
 
 -- Enable ALE Fixing on Save

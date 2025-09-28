@@ -1,8 +1,8 @@
 local function ensure_locale()
-  local locale = os.getenv("LANG")
+  local locale = vim.env.LANG
   if not locale or locale ~= "en_US.UTF-8" then
-    os.setenv("LANG", "en_US.UTF-8")
-    os.setenv("LC_ALL", "en_US.UTF-8")
+    vim.env.LANG = "en_US.UTF-8"
+    vim.env.LC_ALL = "en_US.UTF-8"
   end
 end
 ensure_locale()
@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
  use 'williamboman/mason-lspconfig.nvim'
 
  use {
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         run = ':MasonUpdate' -- Optional: to ensure Mason is up-to-date
  }
  use 'psf/black' 
@@ -60,6 +60,22 @@ return require('packer').startup(function(use)
  use 'rcarriga/nvim-dap-ui'
  use 'theHamsta/nvim-dap-virtual-text'
  use 'nvim-neotest/nvim-nio' 
-
+ use {
+   'tiagovla/tokyodark.nvim',
+   config = function()
+    require("tokyodark").setup({
+      transparent_background = true,
+      gamma = 1.0,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        identifiers = { italic = true },
+        functions = {},
+        variables = {},
+      },
+      terminal_colors = true,
+    })
+    vim.cmd[[colorscheme tokyodark]]
+  end}
 end)
 

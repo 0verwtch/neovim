@@ -33,6 +33,7 @@ lspconfig["eslint"].setup {
    '.eslintrc.js',
    '.eslintrc.cjs',
    '.eslintrc.yaml',
+   'eslint.config.mjs',
    '.eslintrc.yml',
    '.eslintrc.json' )
 }	
